@@ -1,18 +1,16 @@
 import React from "react";
+import NavBar from "../../../components/Navigation/NavBar.jsx"
 import FilterComponent from "../../../components/FilterComponent/FilterComponent";
 import HouseCard from "../../../components/HouseCard/HouseCard";
 import style from "./homePage.module.css";
+import ControlButtons from "../../../components/paginationControlComponent/ControlButtons.jsx";
 const HomePage = () => {
   return (
     <main className={style.mainContainer}>
-      <h1>Welcome to Game of Thrones Blog</h1>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Consequuntur
-        architecto in minima natus aut! Quibusdam obcaecati ea aperiam, porro
-        corporis deserunt? Quaerat ullam laudantium repellendus ratione, eum
-        nobis molestias minus!
-      </p>
+       <NavBar/>
+      <h1>Houses</h1>
       <div className={style.componentContainer}>
+        <ControlButtons/>
         <FilterComponent />
         <HouseCard />
       </div>

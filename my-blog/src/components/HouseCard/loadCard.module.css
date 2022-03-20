@@ -1,0 +1,44 @@
+.cardContainer{
+    width:70vw;
+    height:70vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap:16px;
+    justify-content: center;
+    align-items: center;
+    padding:4%;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.card{
+background-color: black;
+width:30vw;
+height:23vw;
+display:flex;
+flex-direction: column;
+align-items: center;
+margin:1%;
+padding:8%;
+border-radius: 15px 55px;
+gap:4%;
+
+}
+.height{
+    text-align:center;
+   
+    padding:2%
+}
+.cardImg{
+    width:50px;
+    height:50px;
+}
+.card:hover{
+  height:23vw;
+  background-color: rgba(189, 27, 59,0.8);
+
+}
+.knowMoreLink{
+   text-decoration: none;
+}
+.card span{
+   color:rgb(255, 166, 0)
+}

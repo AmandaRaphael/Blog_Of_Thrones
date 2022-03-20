@@ -1,23 +1,24 @@
 import { useContext } from "react";
+import { Outlet } from "react-router-dom";
 import MyContext from "../../context/MyContext";
-const HouseCard = () => {
-  const { data } = useContext(MyContext);
-  const { results } = data;
+import LoadCard from "./LoadCard";
 
+
+const HouseCard = () => {
+  
+  
+    const { data } = useContext(MyContext);
+    
+    const { results } = data;
+
+      
   return (
     <div>
+      <Outlet/>
       {results ? (
-        results.data.map((ele, i) => {
-          return (
-            <div>
-              {" "}
-              <li key={ele.name}>{ele.name}</li>
-            </div>
-          );
-        })
-      ) : (
-        <li>Sorry! No search results for</li>
-      )}
+        <LoadCard/> 
+      )
+       : null}
     </div>
   );
 };

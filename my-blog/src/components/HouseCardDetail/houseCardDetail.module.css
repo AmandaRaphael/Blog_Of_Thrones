@@ -1,0 +1,23 @@
+.cardDetailsContainer{
+   width:90%;
+   display:flex;
+   justify-content: center;
+    background: #DFC2F2;
+	background-image: linear-gradient( to right,orange,#f50aba);
+	background-attachment: fixed;	
+	background-size: cover;
+    border-radius: 4% ;
+    margin:5%
+}
+.cardDetails{
+    width:80%;
+    font-family: 'Times New Roman', Times, serif;
+    box-shadow: 0 15px 30px 1px grey;
+	background: rgba(255, 255, 255, 0.90);
+	text-align: center;
+	border-radius: 5px;
+	overflow: hidden;
+	margin: 5em auto;
+	height: 50%;
+    color:red
+}
