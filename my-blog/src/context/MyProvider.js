@@ -5,46 +5,67 @@ import { useState, useEffect } from "react";
 import regionData from "../assets/HouseRegionImages/data";
 
 const MyProvider = ({ children }) => {
-
   const [data, setData] = useState({
-    results:null,
+    results: null,
     loading: true,
     error: null,
   });
+ 
+  
+  const [filterRegionState, setFilterRegionState] = useState({
+    reach: false,
+    north: false,
+    westerlands: false,
+  });
 
   const [selectedCardUrl, setSelectedCardUrl] = useState(null);
-    const [page, setPage] = useState(1);
+
+  const [page, setPage] = useState(1);
+
   const loadHouseCard = async () => {
     const url = `https://anapioficeandfire.com/api/houses?page=${page}&pageSize=12`;
     try {
       const results = await axios.get(url);
-        setData({
-          results,
-          loading: false,
-          error: null,
-        });
-
-      
+      setData({
+        results,
+        loading: false,
+        error: null,
+      });
     } catch (error) {
       setData({ results: null, loading: false, error });
     }
   };
- 
- 
-  
+
+  useEffect(() => {
+    loadHouseCard();
+  }, [page]);
+
   const getImageFilter = (houseName) => {
-    const filteredHouse=(regionData.filter((house)=> house.region === houseName))
-    
-    return (filteredHouse.length > 0 ? filteredHouse[0].image : '')
-  }
-  
-  
-   useEffect(() => {
-      loadHouseCard(); 
-   }, [page]);
-  
+    const filteredHouse = regionData.filter(
+      (house) => house.region === houseName
+    );
+
+    return filteredHouse.length > 0 ? filteredHouse[0].image : "";
+  };
+
+  const getFilteredRegion = (region) => {
+    return data.results.data.filter((house) => house.region === region);
+  };
   return (
-    <MyContext.Provider value={{ data, setData,selectedCardUrl,setSelectedCardUrl,getImageFilter,page,setPage }}>
+    <MyContext.Provider
+      value={{
+        data,
+        setData,
+        selectedCardUrl,
+        setSelectedCardUrl,
+        getImageFilter,
+        page,
+        setPage,
+        filterRegionState,
+        setFilterRegionState,
+        getFilteredRegion
+      }}
+    >
       {children}
     </MyContext.Provider>
   );

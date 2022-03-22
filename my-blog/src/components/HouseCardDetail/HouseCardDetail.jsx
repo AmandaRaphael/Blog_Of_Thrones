@@ -5,11 +5,10 @@ import style from "./houseCardDetail.module.css";
 
 const HouseCardDetail = () => {
   const { houseName } = useParams();
-  const { data, selectedCardUrl } = useContext(MyContext);
+  const { data, selectedCardUrl, getImageFilter } = useContext(MyContext);
   const { results } = data;
   const [cardInfo, setCardInfo] = useState(null);
-
-  console.log("kk", houseName, selectedCardUrl);
+  const [currentLord, setCurrentLord] = useState(null);
 
   const getHouseCardDetails = (name) => {
     return results.data.filter((house) => house.name === name);
@@ -19,12 +18,12 @@ const HouseCardDetail = () => {
     fetch(selectedCardUrl)
       .then((response) => response.json())
       .then((cardData) => {
-        console.log("ooooo", cardData);
         setCardInfo(cardData);
       });
   };
 
   useEffect(() => {
+      setCurrentLord(null);
     fetchSelectedCardDetails();
   }, [selectedCardUrl]);
 
@@ -32,26 +31,65 @@ const HouseCardDetail = () => {
     if (!value) {
       return null;
     }
-
+ 
     return (
-      <li>
+      <li className={style.labelValueList}>
         {label} : {value}
       </li>
     );
+  };
+
+  const fetchCurrentLord = (url) => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((result) => {
+     
+          setCurrentLord(result.name);
+       
+        
+      });
+      
+  
   };
 
   return (
     <div className={style.cardDetailsContainer}>
       {
         <div className={style.cardDetails}>
-          {results ? (
-            <p>House: {getHouseCardDetails(houseName)[0].name}</p>
-          ) : null}
-          {renderCardInfo(cardInfo?.region, "Region")}
-          {renderCardInfo(cardInfo?.coatOfArms, "Coat of Arms")}
-          {renderCardInfo(cardInfo?.words, "Words")}
-          {/* {renderCardInfo(cardInfo?.currentLord, "Current Lord")} */}
-          {renderCardInfo(cardInfo?.founded, "Founded")}
+          <div className={style.leftCardDetails}>
+            <h2>
+              {results ? (
+                <p>House: {getHouseCardDetails(houseName)[0]?.name}</p>
+              ) : null}
+            </h2>
+
+            <div>
+              {renderCardInfo(cardInfo?.region, "Region")}
+              {renderCardInfo(currentLord, "Current Lord")}
+            </div>
+
+            <div className={style.controls}>
+              <button
+                className={style.btn}
+                onClick={()=>fetchCurrentLord(cardInfo?.currentLord)}
+              >
+                Know Current Lord
+              </button>
+            </div>
+          </div>
+
+          <div className={style.rightCardDetails}>
+            <img src={getImageFilter(cardInfo?.region)} alt="cardDetailImage" />
+            <div className={style.info}>
+              <h2> Description</h2>
+              <ul>
+                {renderCardInfo(cardInfo?.region, "Region")}
+                {renderCardInfo(cardInfo?.coatOfArms, "Coat of Arms")}
+                {renderCardInfo(cardInfo?.words, "Words")}{" "}
+                {renderCardInfo(cardInfo?.founded, "Founded")}{" "}
+              </ul>
+            </div>
+          </div>
         </div>
       }
     </div>

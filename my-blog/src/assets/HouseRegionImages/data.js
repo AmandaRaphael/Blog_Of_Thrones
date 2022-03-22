@@ -7,7 +7,7 @@ import westerlands from "./RegionImages/westerlands.webp"
 import reach from "./RegionImages/Tyrell.webp"
 import Riverlands from "./RegionImages/Tully.webp"
 import Dorne from "./RegionImages/Martell.webp"
-
+import neck  from "../images/GAME-OF-THRONES.jpg"
 const regionData=[
     {region:"The Crownlands",
     image: Crownlands},
@@ -26,7 +26,8 @@ const regionData=[
     {region:"Dorne",
     image: Dorne},
     {region:"The Riverlands",
-    image: Riverlands}
-    
+    image: Riverlands},
+    {region:"The Neck",
+    image: neck}
 ]
 export default regionData

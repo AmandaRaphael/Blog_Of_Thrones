@@ -7,12 +7,12 @@ import ControlButtons from "../../../components/paginationControlComponent/Contr
 const HomePage = () => {
   return (
     <main className={style.mainContainer}>
-       <NavBar/>
+      <NavBar />
       <h1>Houses</h1>
       <div className={style.componentContainer}>
-        <ControlButtons/>
         <FilterComponent />
         <HouseCard />
+        <ControlButtons />
       </div>
     </main>
   );
