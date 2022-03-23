@@ -9,8 +9,32 @@
   gap: 4%;
   font-size: 20px;
 }
+.glowOnHover {
+  width: 70%;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 1px;
+  font-size: 10px;
+  padding:2%
+}
+/* mobile */
+@media only screen and (min-width: 320px) and (max-width: 675px){
 span {
-  color: white;
+ 
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+}
+/* desktop */
+@media only screen and (min-width: 676px){
+
+span {
   letter-spacing: 3px;
   font-size: 27px;
 }
@@ -91,4 +115,5 @@ span {
   100% {
     background-position: 0 0;
   }
+}
 }

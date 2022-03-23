@@ -18,24 +18,24 @@
   border-radius: 5px;
   overflow: hidden;
   margin: 5em auto;
-  color: red;
 }
 .leftCardDetails {
   position: relative;
   text-align: left;
   overflow: hidden;
-  padding: 30px;
+  padding: 3px;
   float: left;
   width: 50%;
-  font-size: 35px;
+  font-size: 13px;
 }
 .leftCardDetails h2 {
   font-family: "Bebas Neue", cursive;
   position: relative;
   color: #344055;
   margin: 0;
-  font-size: 45px;
+  font-size: 15px;
 }
+
 .leftCardDetails h2:before {
   position: absolute;
   content: "";
@@ -54,11 +54,10 @@
 .labelValueList {
   list-style-type: none;
   font-family: "EB Garamond", serif;
-  font-size: 30px;
+  font-size: 10px;
   color: #413f3f;
-  padding: 5px;
+  padding: 3px;
 }
-
 .control {
   position: absolute;
   bottom: 10%;
@@ -77,7 +76,7 @@
   color: black;
   height: 3vw;
   width: 10vw;
-  font-size: 20px;
+  font-size: 10px;
   margin: 2%;
   font-family: "EB Garamond", serif;
 }
@@ -92,13 +91,11 @@
   overflow: hidden;
   height: 100%;
   width: 50%;
-
 }
 .rightCardDetails img {
   width: 100%;
   height: 100%;
 }
-
 .info {
   background: rgba(27, 26, 26, 0.9);
   font-family: "Bree Serif", serif;
@@ -114,17 +111,14 @@
   width: 100%;
   left: 0;
   top: 0;
-  padding:4%
+  padding: 4%;
 }
-
 .info h2 {
   text-align: center;
-  font-size: 40px;
 }
 .rightCardDetails:hover .info {
   transform: translateX(0);
 }
-
 .info ul li {
   transition: 0.3s ease;
   list-style-type: none;
@@ -139,4 +133,41 @@
 }
 .rightCardDetails:hover img {
   transform: scale(1.1, 1.1);
+}
+/* mobile */
+@media only screen and (min-width: 320px) and (max-width: 675px) {
+  .cardDetails {
+    box-shadow: 0 10px 20px 1px grey;
+    display: flex;
+    color: red;
+  }
+  .info h2 {
+    font-size: 20px;
+  }
+  .controls{
+    font-size: 5px;
+  }
+}
+/* desktop */
+@media only screen and (min-width: 676px) {
+  .leftCardDetails {
+    padding: 30px;
+    font-size: 35px;
+  }
+  .leftCardDetails h2 {
+    font-size: 45px;
+  }
+
+  .labelValueList {
+    font-size: 30px;
+    padding: 5px;
+  }
+
+  .btn {
+    font-size: 20px;
+  }
+
+  .info h2 {
+    font-size: 40px;
+  }
 }

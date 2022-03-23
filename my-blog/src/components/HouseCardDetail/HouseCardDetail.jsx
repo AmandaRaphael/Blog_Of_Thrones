@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MyContext from "../../context/MyContext";
 import style from "./houseCardDetail.module.css";
+import { usePromiseTracker } from "react-promise-tracker";
+import Spinner from "../Spinner/Spinner.js";
 
 const HouseCardDetail = () => {
   const { houseName } = useParams();
@@ -9,6 +11,7 @@ const HouseCardDetail = () => {
   const { results } = data;
   const [cardInfo, setCardInfo] = useState(null);
   const [currentLord, setCurrentLord] = useState(null);
+  const { promiseInProgress } = usePromiseTracker();
 
   const getHouseCardDetails = (name) => {
     return results.data.filter((house) => house.name === name);
@@ -23,7 +26,7 @@ const HouseCardDetail = () => {
   };
 
   useEffect(() => {
-      setCurrentLord(null);
+    setCurrentLord(null);
     fetchSelectedCardDetails();
   }, [selectedCardUrl]);
 
@@ -31,7 +34,7 @@ const HouseCardDetail = () => {
     if (!value) {
       return null;
     }
- 
+
     return (
       <li className={style.labelValueList}>
         {label} : {value}
@@ -43,13 +46,8 @@ const HouseCardDetail = () => {
     fetch(url)
       .then((response) => response.json())
       .then((result) => {
-     
-          setCurrentLord(result.name);
-       
-        
+        setCurrentLord(result.name);
       });
-      
-  
   };
 
   return (
@@ -62,16 +60,16 @@ const HouseCardDetail = () => {
                 <p>House: {getHouseCardDetails(houseName)[0]?.name}</p>
               ) : null}
             </h2>
-
-            <div>
-              {renderCardInfo(cardInfo?.region, "Region")}
-              {renderCardInfo(currentLord, "Current Lord")}
-            </div>
-
+            <div>{renderCardInfo(cardInfo?.region, "Region")}</div>
+            {promiseInProgress === true ? (
+              <Spinner />
+            ) : currentLord ? (
+              <div>{renderCardInfo(currentLord, "Current Lord")}</div>
+            ) : null}
             <div className={style.controls}>
               <button
                 className={style.btn}
-                onClick={()=>fetchCurrentLord(cardInfo?.currentLord)}
+                onClick={() => fetchCurrentLord(cardInfo?.currentLord)}
               >
                 Know Current Lord
               </button>

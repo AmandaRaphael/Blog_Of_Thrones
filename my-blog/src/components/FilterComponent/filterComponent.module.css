@@ -1,24 +1,13 @@
-
 .checkbox {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 70vw;
-  height: 30vh;
   margin-top: 12%;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.checkbox h2 {
-  font-size: 30px;
-}
-.container {
-  font-size: 20px;
-}
-
 ul.checkboxTags {
   list-style: none;
-  padding: 20px;
 }
 ul.checkboxTags li {
   display: inline;
@@ -30,20 +19,12 @@ ul.checkboxTags li label {
   border-radius: 25px;
   white-space: nowrap;
   margin: 3px 0px;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
   transition: all 0.2s;
 }
 
 ul.checkboxTags li label {
-  padding: 8px 12px;
   cursor: pointer;
 }
-
 ul.checkboxTags li label::before {
   display: inline-block;
   font-style: normal;
@@ -57,27 +38,60 @@ ul.checkboxTags li label::before {
   transition: transform 0.3s ease-in-out;
   color: white;
 }
-
 ul.checkboxTags li input[type="checkbox"]:checked + label::before {
   content: "\f00c";
   transform: rotate(-360deg);
   transition: transform 0.3s ease-in-out;
 }
-
 ul.checkboxTags li input[type="checkbox"]:checked + label {
   border: 2px solid #1bdbf8;
   background-color: #12bbd4;
   color: #fff;
   transition: all 0.2s;
 }
-
 ul.checkboxTags li input[type="checkbox"] {
-  /* display: absolute; */
-}
-ul.checkboxTags li input[type="checkbox"] {
-  /* position: absolute; */
   opacity: 0;
 }
 ul.checkboxTags li input[type="checkbox"]:focus + label {
   border: 2px solid #e9a1ff;
+}
+
+
+/* mobile */
+@media only screen and (min-width: 320px) and (max-width: 675px) {
+  .checkbox {
+    height: auto;
+  }
+  .checkbox h2 {
+    font-size: 17px;
+  }
+  ul.checkboxTags li label::before {
+    font-size: 13px;
+  }
+  ul.checkboxTags li label {
+  padding: 3px;
+
+}
+}
+
+/* desktop */
+@media only screen and (min-width: 676px) {
+  .checkbox {
+    height: 30vh;
+    letter-spacing: 1.5mm;
+  }
+  .checkbox h2 {
+    font-size: 40px;
+  }
+  .container {
+    font-size: 20px;
+    font-weight: bold;
+  }
+ul.checkboxTags li label {
+  padding: 8px 12px;
+
+}
+  ul.checkboxTags {
+    padding: 20px;
+  }
 }

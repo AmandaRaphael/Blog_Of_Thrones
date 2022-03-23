@@ -1,18 +1,22 @@
-/* .nav img{
-    width:100%;
-    height:150px;
-} */
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.nav{
-   background-color: transparent;
-   width:100%;
-    height:70px;
-	position: sticky;
-	top: 0;
-    margin:1%;
-    padding:2%
+.nav {
+  position: sticky;
+  top: 0;
+  margin: 1%;
+}
+/* mobile */
+@media only screen and (min-width: 320px) and (max-width: 675px) {
+}
+/* desktop */
+@media only screen and (min-width: 676px) {
+  .nav {
+    background-color: transparent;
+    width: 100%;
+    height: 70px;
+    padding: 2%;
+  }
 }

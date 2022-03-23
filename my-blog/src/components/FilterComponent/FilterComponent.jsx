@@ -17,7 +17,7 @@ const FilterComponent = () => {
 
   return (
     <div className={style.checkbox}>
-      <h2>Filter by important Regions</h2>
+      <h2>Filter by Regions</h2>
 
       <div className={style.container}>
         <ul class={style.checkboxTags}>

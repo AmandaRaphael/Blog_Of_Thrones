@@ -2,18 +2,62 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
   justify-content: center;
   align-items: center;
   padding: 2%;
   font-family: Georgia, "Times New Roman", Times, serif;
+  margin-top:2%;
+  gap:3%
+}
+.card {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6%;
+  border-radius: 15px 35px;
+}
+.height {
+  text-align: center;
+  padding: 3%;
+}
+.card:hover {
+  background-color: rgba(189, 27, 59, 0.8);
+}
+.knowMoreLink {
+  text-decoration: none;
+}
+.card span {
+  color: rgb(255, 166, 0);
+
+}
+/* mobile */
+@media only screen and (min-width: 320px) and (max-width: 675px){
+.cardImg {
+  width: 50px;
+  height: 50px;
+}
+.card{
+  height:35vh;
+  width:38vw;
+ margin:2%;
+ padding:5%
+}
+.card span{
+  font-size: 15px;
+}
+}
+/* desktop */
+@media only screen and (min-width: 676px){
+.cardContainer {
    font-size: 30px;
-   margin-top:2%
+   gap: 16px;
+   margin-top:3%;
 }
 .card {
   background-color: black;
   width: 16vw;
-  height: 20vw;
+  height: 22vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,20 +69,17 @@
 }
 .height {
   text-align: center;
-  padding: 2%;
+  padding: 3%;
 }
 .cardImg {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
 }
 .card:hover {
   height: 21vw;
-  background-color: rgba(189, 27, 59, 0.8);
 }
-.knowMoreLink {
-  text-decoration: none;
-}
+
 .card span {
-  color: rgb(255, 166, 0);
   font-size: 31px;
+}
 }
