@@ -3,6 +3,7 @@ import axios from "axios";
 import MyContext from "./MyContext";
 import { useState, useEffect } from "react";
 import regionData from "../assets/HouseRegionImages/data";
+import filterData from "../components/FilterComponent/filterData";
 
 const MyProvider = ({ children }) => {
   const [data, setData] = useState({
@@ -10,12 +11,21 @@ const MyProvider = ({ children }) => {
     loading: true,
     error: null,
   });
- 
+//   const initialValOfFilterRegionState = filterData.map((house, i) => {
+//    return {house.name}
+//  })
   
   const [filterRegionState, setFilterRegionState] = useState({
     reach: false,
     north: false,
     westerlands: false,
+    crownlands: false,
+    vale: false,
+    ironIslands: false,
+    stormlands: false,
+    dorne: false,
+    riverlands: false,
+    neck:false
   });
 
   const [selectedCardUrl, setSelectedCardUrl] = useState(null);
