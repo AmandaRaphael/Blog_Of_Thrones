@@ -4,90 +4,29 @@ import MyContext from "../../context/MyContext";
 import { Card } from "react-bootstrap";
 import styles from "./loadCard.module.css";
 import dummyPic from "../../assets/images/GAME-OF-THRONES.jpg";
-import filterData from "../FilterComponent/filterData";
 
 const LoadCard = () => {
   const {
     data,
     setSelectedCardUrl,
     getImageFilter,
-    filterRegionState,
     getFilteredRegion,
+    selectionState,
   } = useContext(MyContext);
 
   const { results } = data;
 
- 
-  const {
-    reach,
-    north,
-    westerlands,
-    crownlands,
-    vale,
-    ironIslands,
-    stormlands,
-    dorne,
-    riverlands,
-    neck,
-  } = filterRegionState;
-
-  // const pushToFilteredArray = (houseName) => {
-  //     console.log(filterData)
-  //     const houseObject = filterData.filter((house) => house.name === houseName)
-  //      console.log("xx",houseObject)
-  //    return getFilteredRegion(houseObject.label);
-  //  };
-
+  // array which is used to map for rendering the cards
   let filteredArray = [];
 
-  if (reach) {
-    // filteredArray.push(...pushToFilteredArray(reach));
-    filteredArray.push(...getFilteredRegion("The Reach"));
-    console.log(filteredArray);
-  }
-  if (north) {
-    filteredArray.push(...getFilteredRegion("The North"));
-  }
-  if (westerlands) {
-    filteredArray.push(...getFilteredRegion("The Westerlands"));
-  }
-  if (vale) {
-    filteredArray.push(...getFilteredRegion("The Vale"));
-  }
-  if (ironIslands) {
-    filteredArray.push(...getFilteredRegion("Iron Islands"));
-  }
-  if (stormlands) {
-    filteredArray.push(...getFilteredRegion("The Stormlands"));
-  }
-  if (dorne) {
-    filteredArray.push(...getFilteredRegion("Dorne"));
-  }
-  if (westerlands) {
-    filteredArray.push(...getFilteredRegion("The Westerlands"));
-  }
-  if (riverlands) {
-    filteredArray.push(...getFilteredRegion("The Riverlands"));
-  }
-  if (neck) {
-    filteredArray.push(...getFilteredRegion("The Neck"));
-  }
-  if (
-    !(
-      reach ||
-      north ||
-      westerlands ||
-      crownlands ||
-      vale ||
-      ironIslands ||
-      stormlands ||
-      dorne ||
-      riverlands ||
-      neck
-    )
-  ) {
-    filteredArray = results.data;
-  }
+  //maps through the state(selectionState) which has the initial value from  data.js in the assets folder.And then checks in the each data object whether selected key is true
+  selectionState.forEach((region) => {
+    if (region.selected) {
+      filteredArray.push(...getFilteredRegion(region.name));
+    }
+  });
+
+  filteredArray = filteredArray.length === 0 ? results.data : filteredArray;
 
   const handleCardClick = (house) => {
     window.scrollTo({

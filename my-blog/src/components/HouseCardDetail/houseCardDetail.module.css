@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bree+Serif&family=EB+Garamond:ital,wght@0,500;1,800&display=swap");
 .cardDetailsContainer {
-  width: 90%;
+  width: 70vw;
   display: flex;
   justify-content: center;
   background: #dfc2f2;
@@ -139,10 +139,12 @@
   .cardDetails {
     box-shadow: 0 10px 20px 1px grey;
     display: flex;
-    color: red;
+    width:60vw;
+    height:40vh;
+    padding:4%
   }
   .info h2 {
-    font-size: 20px;
+    font-size: 15px;
   }
   .controls{
     font-size: 5px;

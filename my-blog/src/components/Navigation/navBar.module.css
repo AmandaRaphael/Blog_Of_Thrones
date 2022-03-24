@@ -7,9 +7,23 @@
   position: sticky;
   top: 0;
   margin: 1%;
+  display:flex;
+  justify-content: space-between;
+}
+.blogger{
+  font-size: 2vw;
+  color:rgb(236, 113, 25);
+  text-decoration: none;
+  margin-right: 7%;
+}
+.blogger:hover{
+  color:salmon
 }
 /* mobile */
 @media only screen and (min-width: 320px) and (max-width: 675px) {
+  .blogger{
+    font-size: 7vw;
+  }
 }
 /* desktop */
 @media only screen and (min-width: 676px) {

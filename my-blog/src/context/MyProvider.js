@@ -2,8 +2,11 @@ import React from "react";
 import axios from "axios";
 import MyContext from "./MyContext";
 import { useState, useEffect } from "react";
-import regionData from "../assets/HouseRegionImages/data";
-import filterData from "../components/FilterComponent/filterData";
+import {
+  regionData,
+  regionSelectionState,
+} from "../assets/HouseRegionImages/data";
+// import filterData from "../components/FilterComponent/filterData";
 
 const MyProvider = ({ children }) => {
   const [data, setData] = useState({
@@ -11,10 +14,11 @@ const MyProvider = ({ children }) => {
     loading: true,
     error: null,
   });
-//   const initialValOfFilterRegionState = filterData.map((house, i) => {
-//    return {house.name}
-//  })
-  
+  //   const initialValOfFilterRegionState = filterData.map((house, i) => {
+  //    return {house.name}
+  //  })
+  const [selectionState, setSelectionState] = useState(regionSelectionState);
+
   const [filterRegionState, setFilterRegionState] = useState({
     reach: false,
     north: false,
@@ -25,7 +29,7 @@ const MyProvider = ({ children }) => {
     stormlands: false,
     dorne: false,
     riverlands: false,
-    neck:false
+    neck: false,
   });
 
   const [selectedCardUrl, setSelectedCardUrl] = useState(null);
@@ -73,7 +77,9 @@ const MyProvider = ({ children }) => {
         setPage,
         filterRegionState,
         setFilterRegionState,
-        getFilteredRegion
+        getFilteredRegion,
+        selectionState,
+        setSelectionState,
       }}
     >
       {children}

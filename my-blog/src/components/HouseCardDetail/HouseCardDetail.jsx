@@ -7,15 +7,22 @@ import Spinner from "../Spinner/Spinner.js";
 
 const HouseCardDetail = () => {
   const { houseName } = useParams();
+
   const { data, selectedCardUrl, getImageFilter } = useContext(MyContext);
   const { results } = data;
+
   const [cardInfo, setCardInfo] = useState(null);
+
   const [currentLord, setCurrentLord] = useState(null);
+
   const { promiseInProgress } = usePromiseTracker();
 
+  //for h2 in the render
   const getHouseCardDetails = (name) => {
     return results.data.filter((house) => house.name === name);
   };
+
+  //For fetching card details using state selectedCardUrl which updates listening to the click event of the card.
 
   const fetchSelectedCardDetails = () => {
     fetch(selectedCardUrl)
@@ -30,6 +37,7 @@ const HouseCardDetail = () => {
     fetchSelectedCardDetails();
   }, [selectedCardUrl]);
 
+  //Function to render in card details section in a format
   const renderCardInfo = (value, label) => {
     if (!value) {
       return null;
@@ -42,9 +50,17 @@ const HouseCardDetail = () => {
     );
   };
 
+  //check if there is a link and then fetch data from the link corresponding to currentlord
+  
   const fetchCurrentLord = (url) => {
+    if (!url) {
+      setCurrentLord("Sorry, no information yet.")
+      return
+    }
     fetch(url)
-      .then((response) => response.json())
+      .then((response) => {
+        return response.json()
+      })
       .then((result) => {
         setCurrentLord(result.name);
       });
@@ -57,10 +73,12 @@ const HouseCardDetail = () => {
           <div className={style.leftCardDetails}>
             <h2>
               {results ? (
-                <p>House: {getHouseCardDetails(houseName)[0]?.name}</p>
+                <p>{getHouseCardDetails(houseName)[0]?.name}</p>
               ) : null}
             </h2>
+            <div>{renderCardInfo(cardInfo?.name, "House")}</div>
             <div>{renderCardInfo(cardInfo?.region, "Region")}</div>
+            <div>{renderCardInfo(cardInfo?.founded, "Founded")}</div>
             {promiseInProgress === true ? (
               <Spinner />
             ) : currentLord ? (
