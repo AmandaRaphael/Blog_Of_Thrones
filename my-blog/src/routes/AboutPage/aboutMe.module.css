@@ -185,9 +185,31 @@ text-decoration: none;
   grid-gap: 20px;
   font-size: 1.2em;
 }
-@media only screen and (min-width: 320px) and (max-width: 675px) {
-
+@media only screen and (min-width: 310px) and (max-width: 410px) {
+  .mainContainer{
+    width:190vw;
+    height:190vh
+  }
+.card{
+  width:220vw
 }
-@media only screen and (min-width: 676px){
-  
+}
+@media only screen and (min-width: 411px)and (max-width: 720px){
+   .mainContainer{
+    width:200vw;
+    height:190vh
+  }
+  .card{
+    width:170vw
+  }
+}
+@media only screen and (min-width: 720px)and (max-width: 1124px){
+ .container{
+    width:80vw;
+    height:80vh;
+    margin-left: 15%;
+  }
+   .card{
+    width:85vw
+  }
 }

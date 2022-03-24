@@ -12,10 +12,12 @@ const LoadCard = () => {
     getImageFilter,
     getFilteredRegion,
     selectionState,
+    setShowCurrentLord,
   } = useContext(MyContext);
 
   const { results } = data;
 
+ 
   // array which is used to map for rendering the cards
   let filteredArray = [];
 
@@ -25,8 +27,11 @@ const LoadCard = () => {
       filteredArray.push(...getFilteredRegion(region.name));
     }
   });
-
-  filteredArray = filteredArray.length === 0 ? results.data : filteredArray;
+  //checks if any of the regions are selected
+const isSelected = selectionState.find((region)=>region.selected===true)
+  
+  
+  filteredArray = isSelected ? filteredArray : results.data;
 
   const handleCardClick = (house) => {
     window.scrollTo({
@@ -35,16 +40,19 @@ const LoadCard = () => {
       behavior: "smooth",
     });
     setSelectedCardUrl(house.url);
+    setShowCurrentLord(true);
   };
 
   return (
     <main>
       <div className={styles.cardContainer}>
+        
         {filteredArray
           ? filteredArray.map((house, i) => {
               return (
                 <div key={i}>
                   {" "}
+                
                   <Link
                     className={styles.knowMoreLink}
                     to={`/${house.name}`}

@@ -32,6 +32,9 @@ const MyProvider = ({ children }) => {
     neck: false,
   });
 
+  const [cardInfo, setCardInfo] = useState(null);
+   const [showCurrentLord, setShowCurrentLord] = useState(true);
+   const [currentLord, setCurrentLord] = useState(null);
   const [selectedCardUrl, setSelectedCardUrl] = useState(null);
 
   const [page, setPage] = useState(1);
@@ -80,6 +83,10 @@ const MyProvider = ({ children }) => {
         getFilteredRegion,
         selectionState,
         setSelectionState,
+        cardInfo,
+        setCardInfo,
+        currentLord,
+        setCurrentLord,showCurrentLord,setShowCurrentLord
       }}
     >
       {children}

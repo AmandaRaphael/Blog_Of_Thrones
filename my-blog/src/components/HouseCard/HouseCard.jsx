@@ -11,6 +11,7 @@ const HouseCard = () => {
   const { results } = data;
 
   const { promiseInProgress } = usePromiseTracker();
+  
 
   return (
     <div>

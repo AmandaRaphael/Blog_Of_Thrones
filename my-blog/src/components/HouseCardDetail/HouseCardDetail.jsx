@@ -1,19 +1,25 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import MyContext from "../../context/MyContext";
 import style from "./houseCardDetail.module.css";
 import { usePromiseTracker } from "react-promise-tracker";
 import Spinner from "../Spinner/Spinner.js";
+import KnowCurrentLordButton from "./KnowCurrentLordButton";
 
 const HouseCardDetail = () => {
   const { houseName } = useParams();
 
-  const { data, selectedCardUrl, getImageFilter } = useContext(MyContext);
+  const {
+    data,
+    selectedCardUrl,
+    getImageFilter,
+    cardInfo,
+    setCardInfo,
+    currentLord,
+    setCurrentLord,
+    showCurrentLord
+  } = useContext(MyContext);
   const { results } = data;
-
-  const [cardInfo, setCardInfo] = useState(null);
-
-  const [currentLord, setCurrentLord] = useState(null);
 
   const { promiseInProgress } = usePromiseTracker();
 
@@ -50,21 +56,7 @@ const HouseCardDetail = () => {
     );
   };
 
-  //check if there is a link and then fetch data from the link corresponding to currentlord
   
-  const fetchCurrentLord = (url) => {
-    if (!url) {
-      setCurrentLord("Sorry, no information yet.")
-      return
-    }
-    fetch(url)
-      .then((response) => {
-        return response.json()
-      })
-      .then((result) => {
-        setCurrentLord(result.name);
-      });
-  };
 
   return (
     <div className={style.cardDetailsContainer}>
@@ -84,14 +76,8 @@ const HouseCardDetail = () => {
             ) : currentLord ? (
               <div>{renderCardInfo(currentLord, "Current Lord")}</div>
             ) : null}
-            <div className={style.controls}>
-              <button
-                className={style.btn}
-                onClick={() => fetchCurrentLord(cardInfo?.currentLord)}
-              >
-                Know Current Lord
-              </button>
-            </div>
+          
+            {showCurrentLord && <KnowCurrentLordButton/>}
           </div>
 
           <div className={style.rightCardDetails}>
