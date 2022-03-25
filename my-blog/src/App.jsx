@@ -16,6 +16,7 @@ const App = () => {
         <Route path="/aboutMe" element={<AboutPage/>}></Route>
         <Route path="*" element={<h1>404 not found</h1>} />
       </Routes>
+      
     </BrowserRouter>
   );
 }

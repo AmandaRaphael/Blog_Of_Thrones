@@ -5,34 +5,14 @@ import { Card } from "react-bootstrap";
 import styles from "./loadCard.module.css";
 import dummyPic from "../../assets/images/GAME-OF-THRONES.jpg";
 
-const LoadCard = () => {
+const LoadCard = ({house,i}) => {
   const {
-    data,
     setSelectedCardUrl,
     getImageFilter,
-    getFilteredRegion,
-    selectionState,
     setShowCurrentLord,
   } = useContext(MyContext);
 
-  const { results } = data;
-
  
-  // array which is used to map for rendering the cards
-  let filteredArray = [];
-
-  //maps through the state(selectionState) which has the initial value from  data.js in the assets folder.And then checks in the each data object whether selected key is true
-  selectionState.forEach((region) => {
-    if (region.selected) {
-      filteredArray.push(...getFilteredRegion(region.name));
-    }
-  });
-  //checks if any of the regions are selected
-const isSelected = selectionState.find((region)=>region.selected===true)
-  
-  
-  filteredArray = isSelected ? filteredArray : results.data;
-
   const handleCardClick = (house) => {
     window.scrollTo({
       top: 800,
@@ -44,15 +24,7 @@ const isSelected = selectionState.find((region)=>region.selected===true)
   };
 
   return (
-    <main>
-      <div className={styles.cardContainer}>
-        
-        {filteredArray
-          ? filteredArray.map((house, i) => {
-              return (
-                <div key={i}>
-                  {" "}
-                
+                <div>
                   <Link
                     className={styles.knowMoreLink}
                     to={`/${house.name}`}
@@ -80,11 +52,6 @@ const isSelected = selectionState.find((region)=>region.selected===true)
                   </Link>
                 </div>
               );
-            })
-          : null}
-      </div>
-    </main>
-  );
 };
 
 export default LoadCard;

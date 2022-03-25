@@ -6,9 +6,9 @@ const NavBar = () => {
   return (
     <div className={style.nav}>
       <Link to="/">
-        {" "}
         <img src={logo} alt="logo" />
       </Link>
+      
       <Link to="/aboutMe" className={style.blogger}>
         Blogger
       </Link>

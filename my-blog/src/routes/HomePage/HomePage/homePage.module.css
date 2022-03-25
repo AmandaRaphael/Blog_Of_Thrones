@@ -6,33 +6,28 @@
   height: auto;
   color: white;
   font-family: "Festive", cursive;
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom:20%;
-
+  padding-bottom: 20%;
 }
-h1{
-font-size: 80px;
-letter-spacing: 2mm;
+h1 {
+  font-size: 80px;
+  letter-spacing: 2mm;
 }
-.componentContainer{
-     background-color:rgba(39, 26, 4, 0.7); 
-     width:85vw;
-     height:auto;
-     padding-bottom: 18%;
-     margin-top:5%;
-     display:flex; 
-     flex-direction: column;
-     align-items: center;
-    
+.componentContainer {
+  background-color: rgba(39, 26, 4, 0.7);
+  width: 85vw;
+  height: auto;
+  padding-bottom: 18%;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-@media only screen and (min-width: 320px) and (max-width: 675px){
-  
-h1{
-  font-size: 17vw;
-  margin-top: 7%;
-}
-
-
+@media only screen and (min-width: 320px) and (max-width: 675px) {
+  h1 {
+    font-size: 17vw;
+    margin-top: 7%;
+  }
 }

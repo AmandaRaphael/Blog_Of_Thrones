@@ -2,7 +2,7 @@ import profilePic from '../../assets/images/Ammu4.JPG'
 import NavBar from '../../components/Navigation/NavBar'
 import style from "./aboutMe.module.css"
 const AboutMe = () => {
-  //  Documentation: AboutPage is shown when user navigates to path "/aboutMe" by clicking blogger in the NavBar.It renders the profile details and links to various sites and the code for the project.
+  //AboutPage is shown when user navigates to path "/aboutMe" by clicking blogger in the NavBar.It renders the profile details and links to various sites and the code for the project.
   return (
     <div className={style.mainContainer}>
       <NavBar />
@@ -13,7 +13,7 @@ const AboutMe = () => {
           <div className={style.gridContainer}>
             <div className={style.gridChildAssignments}>156 assignments</div>
 
-            <div className={style.gridChildProjects}>12 projects</div>
+            <div className={style.gridChildProjects}>22 projects</div>
           </div>
           <ul className={style.socialIcons}>
             <li>

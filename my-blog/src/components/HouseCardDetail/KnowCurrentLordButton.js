@@ -3,12 +3,17 @@ import style from "./houseCardDetail.module.css";
 import MyContext from "../../context/MyContext";
 
 
-const KnowCurrentLordButton = () => {
+const KnowCurrentLordButton = ({renderCardInfo}) => {
  
      
-  const { cardInfo, setCurrentLord,setShowCurrentLord } =
-    useContext(MyContext);
+  const {
+    cardInfo,
+    setCurrentLord,
+    setShowCurrentLord,
+    setShowCurrentLordButton,
+  } = useContext(MyContext);
 
+  
   //check if there is a link and then fetch data from the link corresponding to currentlord
 
   const fetchCurrentLord = (url) => {
@@ -22,19 +27,16 @@ const KnowCurrentLordButton = () => {
       })
       .then((result) => {
         setCurrentLord(result.name);
+        setShowCurrentLord(true)
       });
   };
     const handleClick = () => {
         fetchCurrentLord(cardInfo?.currentLord)
-        setShowCurrentLord((prev) => !prev);
+        setShowCurrentLordButton((prev) => !prev);
     }
   return (
     <div className={style.controls}>
-    
-      <button
-        className={style.btn}
-        onClick={() => handleClick()}
-      >
+      <button className={style.btn} onClick={() => handleClick()}>
         Know Current Lord
       </button>
     </div>

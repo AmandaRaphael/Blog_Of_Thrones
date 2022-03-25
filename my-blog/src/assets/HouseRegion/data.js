@@ -9,6 +9,7 @@ import Riverlands from "./RegionImages/Tully.webp";
 import Dorne from "./RegionImages/Martell.webp";
 import neck from "../images/GAME-OF-THRONES.jpg";
 
+//to display images
 const regionData = [
   { region: "The Crownlands", image: Crownlands },
   { region: "The North", image: North },
@@ -22,7 +23,7 @@ const regionData = [
   { region: "The Neck", image: neck },
 ];
 
-//for filtercomponent
+//for filter Component
 
 const regionSelectionState = [
   { region: "crownlands", selected: false, name: "The Crownlands" },
