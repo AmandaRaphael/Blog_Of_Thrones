@@ -4,6 +4,10 @@ A blog of all houses of game of Thrones
 
 ### create a SPA which display all houses of game of thrones,by clicking one house further information is shown
 
+### use a bundler
+
+### use versioning
+
 steps:
 
 open the folder my-blog
@@ -23,7 +27,7 @@ phase 1 -Planning(3hrs)
 -set blueprint of the design
 -collect images,fonts,etc.
 
-phase 2 -implementing requirement 1- display house names from Api (10hrs)
+phase 2 -implementing - display house names from Api (10hrs)
 
     -create sources and assets
     -structure route
@@ -40,7 +44,7 @@ phase 2 -implementing requirement 1- display house names from Api (10hrs)
     -create images for filtered Regions in assets
     -display images in house cards
 
-phase 3 - implementing requirement 2- listen to the event click and display house detail(10hrs)
+phase 3 - listen to the event click and display house detail(10hrs)
 -create outlet
 -use useParams get param object and filter clicked component
 -design Outlet
@@ -70,3 +74,13 @@ phase 5 -Add Bonus feature && Refactor(10 hrs)
 -create Blogger page
 -create profile card add profile details
 -design and make it fairly responsive(still on progress)
+
+### Summary
+
+met all three requirements,
+
+- created a SPA which display all houses of game of thrones,by clicking one house further information is shown
+
+- used a bundler(webpack)
+
+- used versioning(gitHub)
