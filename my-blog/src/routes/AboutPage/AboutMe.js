@@ -1,6 +1,6 @@
-import profilePic from '../../assets/images/Ammu4.JPG'
-import NavBar from '../../components/Navigation/NavBar'
-import style from "./aboutMe.module.css"
+import profilePic from "../../assets/images/Ammu4.JPG";
+import NavBar from "../../components/Navigation/NavBar";
+import style from "./aboutMe.module.css";
 const AboutMe = () => {
   //AboutPage is shown when user navigates to path "/aboutMe" by clicking blogger in the NavBar.It renders the profile details and links to various sites and the code for the project.
   return (
@@ -34,16 +34,16 @@ const AboutMe = () => {
           </ul>
           <div className={style.drawBorder}>
             <a
-              className={style.btn}
+              class="aboutMe_btn__J6qxD"
               href="https://github.com/AmandaRaphael/Blog_Of_Thrones/tree/main/my-blog"
             >
-              View Code
+              <div className={style.linkDiv}>View Code</div>
             </a>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default AboutMe
+export default AboutMe;
