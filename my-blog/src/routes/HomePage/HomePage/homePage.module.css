@@ -25,9 +25,15 @@ h1 {
   flex-direction: column;
   align-items: center;
 }
-@media only screen and (min-width: 320px) and (max-width: 675px) {
+@media only screen and (min-width: 320px) and (max-width: 725px) {
   h1 {
-    font-size: 17vw;
-    margin-top: 7%;
+    font-size: 15vw;
+    margin-top: 12%;
+  }
+}
+@media only screen and (min-width: 726px) and (max-width: 1025px){
+ h1 {
+    font-size: 14vw;
+    margin-top: 14%;
   }
 }

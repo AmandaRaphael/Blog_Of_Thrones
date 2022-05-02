@@ -58,12 +58,13 @@ ul.checkboxTags li input[type="checkbox"]:focus + label {
 
 
 /* mobile */
-@media only screen and (min-width: 320px) and (max-width: 675px) {
+@media only screen and (min-width: 320px) and (max-width: 725px) {
   .checkbox {
     height: auto;
   }
   .checkbox h2 {
-    font-size: 17px;
+    font-size: 19px;
+    letter-spacing: 1mm;
   }
   ul.checkboxTags li label::before {
     font-size: 13px;
@@ -74,6 +75,9 @@ ul.checkboxTags li input[type="checkbox"]:focus + label {
 }
 }
 
+@media only screen and (min-width: 726px) and (max-width: 1025px){
+
+}
 /* desktop */
 @media only screen and (min-width: 676px) {
   .checkbox {

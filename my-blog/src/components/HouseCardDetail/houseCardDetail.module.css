@@ -135,13 +135,14 @@
   transform: scale(1.1, 1.1);
 }
 /* mobile */
-@media only screen and (min-width: 320px) and (max-width: 675px) {
+@media only screen and (min-width: 320px) and (max-width: 725px) {
   .cardDetails {
     box-shadow: 0 10px 20px 1px grey;
     display: flex;
     width:60vw;
     height:40vh;
-    padding:4%
+    padding:4%;
+    font-size: 20px;
   }
   .info h2 {
     font-size: 15px;
@@ -172,4 +173,5 @@
   .info h2 {
     font-size: 40px;
   }
+ 
 }

@@ -9,6 +9,7 @@
   margin: 1%;
   display:flex;
   justify-content: space-between;
+  width: 100vw;
 }
 .blogger{
   font-size: 2vw;
@@ -20,17 +21,27 @@
   color:salmon
 }
 /* mobile */
-@media only screen and (min-width: 320px) and (max-width: 675px) {
+@media only screen and (min-width: 320px) and (max-width: 725px) {
   .blogger{
     font-size: 7vw;
+    padding-left:5%
   }
 }
 /* desktop */
 @media only screen and (min-width: 676px) {
   .nav {
     background-color: transparent;
-    width: 100%;
+  
     height: 70px;
     padding: 2%;
   }
+
 }
+@media only screen and (min-width: 320px) and (max-width: 725px){
+  .nav a img{
+    width:130px;
+    margin:2%;
+    padding-left: 5%;
+  }
+}
+ 
